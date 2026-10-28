@@ -1,0 +1,49 @@
+.cg {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px;
+  background: #f7f8f5;
+  color: #1f2a26;
+  border: 1px solid #244f43;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.cg h2 { margin: 0 0 4px; font-size: 18px; color: #244f43; }
+.cg-goal { margin: 8px 0 4px; font-size: 17px; }
+.cg p, .cg li { font-size: 16px; }
+.cg-note { margin: 0 0 8px; color: #3c4a44; }
+.cg-status { margin: 4px 0; font-weight: 600; }
+.cg-question { margin: 8px 0; font-weight: 600; color: #244f43; }
+.cg-hint { color: #3c4a44; }
+.cg-alert {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-left: 4px solid #8a4b16;
+  background: #fff;
+  color: #5a3210;
+}
+.cg-summary, .cg-steps { margin: 8px 0; padding-left: 20px; }
+.cg-choices { list-style: none; margin: 8px 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cg-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.cg button {
+  box-sizing: border-box;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 16px;
+  font-size: 16px;
+  text-align: left;
+  white-space: normal;
+  color: #fff;
+  background: #244f43;
+  border: 1px solid #244f43;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cg-choices button { width: 100%; }
+.cg button:hover:not(:disabled) { background: #1b3d34; }
+.cg button:focus-visible { outline: 3px solid #244f43; outline-offset: 2px; box-shadow: 0 0 0 2px #f7f8f5; }
+.cg button:disabled { cursor: not-allowed; color: #5b665f; background: #e3e7e1; border-color: #b9c2bb; }

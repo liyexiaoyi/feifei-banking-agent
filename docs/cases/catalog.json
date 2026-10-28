@@ -1,0 +1,382 @@
+{
+  "version": "0.2",
+  "retrieved_date": "2026-10-26",
+  "purpose": "公开案例素材；不是训练集、官方评测或已经通过的业务测试。",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "贷款、代办信用卡类诈骗",
+      "publisher": "平川区人民政府／平川公安反诈中心",
+      "published_date": "2025-03-17",
+      "url": "https://www.bypc.gov.cn/zfxxgk/bmdwxzjd/xzjd/xpljdbsc/fdzdgknr/jwgk/dzsq/cwgk/art/2025/art_7c2bc9b394b14ec9b09b1af2b41c9e0d.html",
+      "retrieved_at": "2026-10-25T14:02:58.755693+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "313f7c559fdce058c0aaf995db384374b7f82726d5562decdd0a6090f6ec01bd",
+      "error_type": null
+    },
+    {
+      "id": "S02",
+      "title": "客服主动来电退款？小心是诈骗陷阱",
+      "publisher": "广州市公安局花都分局",
+      "published_date": "2025-12-25",
+      "url": "https://www.huadu.gov.cn/zmhd/zsk/ga/content/post_10570403.html",
+      "retrieved_at": "2026-10-25T14:02:58.756676+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "3012ff85fa589d19875d44e2349d6e9023d85c3b7009d9a520fe24193d43438b",
+      "error_type": null
+    },
+    {
+      "id": "S03",
+      "title": "抖音客服来电？警惕！新型电信诈骗盯上短视频用户",
+      "publisher": "宁夏回族自治区通信管理局",
+      "published_date": "2025-07-15",
+      "url": "https://nxca.miit.gov.cn/ztzl/Appqhyhqyzxzz/art/2025/art_b2d6ceb967fc431fa98cdceba479cadd.html",
+      "retrieved_at": "2026-10-25T14:02:58.756676+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "30a0fcfd226cdcd750858d4d9be8d6c290ba83c6392e3fa81137537beb7f7279",
+      "error_type": null
+    },
+    {
+      "id": "S04",
+      "title": "中信银行包头分行成功堵截涉诈资金",
+      "publisher": "中信银行",
+      "published_date": "2025-06-11",
+      "url": "https://www.citicbank.com/about/companynews/banknew/message/202506/t20250616_3569076.html",
+      "retrieved_at": "2026-10-25T14:03:03.358464+00:00",
+      "status": 404,
+      "accepted": false,
+      "sha256": null,
+      "error_type": "HTTPStatusError"
+    },
+    {
+      "id": "S05",
+      "title": "以乡村发展基金名义的金融诈骗案例",
+      "publisher": "中国民生银行厦门分行",
+      "published_date": null,
+      "url": "https://www.cmbc.com.cn/cmbc_new/2026-05/19/article_2026051910282082613.html",
+      "retrieved_at": "2026-10-25T14:03:04.583637+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "80e31ee78d3b0b7128705d0934e5e9138eb7130d75da6f576fa6500bf342581c",
+      "error_type": null
+    },
+    {
+      "id": "S06",
+      "title": "手机银行明细查询操作指南",
+      "publisher": "中国建设银行",
+      "published_date": null,
+      "url": "https://ebank.ccb.com/cn/ebank/20110329_1301379765.html",
+      "retrieved_at": "2026-10-25T14:03:05.385319+00:00",
+      "status": null,
+      "accepted": false,
+      "sha256": null,
+      "error_type": "ConnectError"
+    },
+    {
+      "id": "S07",
+      "title": "手机银行智能账簿与我的账单",
+      "publisher": "中国民生银行",
+      "published_date": null,
+      "url": "https://www.cmbc.com.cn/dzyx/sjyx/kxht/index.htm",
+      "retrieved_at": "2026-10-25T14:03:05.508960+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "f8af188d1694ae170f4bbdc9feb951e4876fc37c09cf007d1eaf4af74eceffc8",
+      "error_type": null
+    },
+    {
+      "id": "S08",
+      "title": "规范自动续费服务，广州互联网法院发出司法建议书",
+      "publisher": "广州市委网信办，转载广州互联网法院",
+      "published_date": "2025-05-09",
+      "url": "https://www.gzwxb.gov.cn/context/contextId/213401",
+      "retrieved_at": "2026-10-25T14:03:06.659383+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "b55fa51ba2926226f1a6925bdcb35e668eceb2af4fe25aa38e43e92e44f08f82",
+      "error_type": null
+    },
+    {
+      "id": "S09",
+      "title": "武汉市公安局",
+      "publisher": "武汉市公安局",
+      "published_date": "2026-07-22",
+      "url": "https://gaj.wuhan.gov.cn/jmzx/jqfb/202607/t20260722_2823933.html",
+      "retrieved_at": "2026-10-26T10:15:28.397489+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "593533ced818c1fd589d5645d4def84137e93dabaac3f5d108349f41a09c3dc0",
+      "text_sha256": "c920d58e0d00c5b22c55a1a9134c3b16a0f55784d278c4e743dbef3dadefb3b0",
+      "error_type": null,
+      "rights": "公开网页供本项目私有参考，未认定训练或全文再分发许可"
+    },
+    {
+      "id": "S10",
+      "title": "工行济源分行成功拦截一起电信诈骗 守护客户资金安全_济源市人民政府",
+      "publisher": "济源日报",
+      "published_date": "2026-01-14",
+      "url": "https://www.jiyuan.gov.cn/zwyw/bmdt/t995271.html",
+      "retrieved_at": "2026-10-26T10:15:33.763323+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "4fbba59eb011d842ee16f962c7a992cac2344b5877d0a6eabf9086ab3923878f",
+      "text_sha256": "34b191607a16605865c1c0cb83e6fea4302dd4f360937f4abfbfb385eb6aa6a7",
+      "error_type": null,
+      "rights": "公开网页供本项目私有参考，未认定训练或全文再分发许可"
+    },
+    {
+      "id": "S11",
+      "title": "平顶山市公安局",
+      "publisher": "平顶山市公安局",
+      "published_date": "2025-12-29",
+      "url": "https://gaj.pds.gov.cn/contents/18987/732773.html",
+      "retrieved_at": "2026-10-26T10:15:44.171996+00:00",
+      "status": 200,
+      "accepted": true,
+      "sha256": "5c9f942d3c33f3d0a9e538e39752a34d0ab4a6dbfb4c02eaf5871988e257d8b4",
+      "text_sha256": "38c89cc64e4e96f2219e77c54bcb8812cf2967bd4da0fbdb3d92c67989e292a4",
+      "error_type": null,
+      "rights": "公开网页供本项目私有参考，未认定训练或全文再分发许可"
+    }
+  ],
+  "records": [
+    {
+      "source_id": "S01",
+      "kind": "fraud_case",
+      "title": "下载非法放贷APP被骗4.5万元",
+      "summary": "王先生因资金周转下载“急速放贷”非法APP并提交个人信息，被冒充信贷专员以验资保证金、激活账户等名义诱导转账，累计被骗4.5万元。",
+      "signals": [
+        "通过短视频平台下载非法放贷APP",
+        "提交个人信息后接到自称信贷专员来电",
+        "伪造监管认证文件获取信任"
+      ],
+      "evidence": [
+        "累计被骗取4.5万元"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C01",
+      "review_note": "核对借款验资、刷流水及4.5万元损失，未把贷款申请本身标为诈骗。",
+      "scene": "transfer",
+      "proposed_check": "对验资保证金、解冻费等诱导付款提示风险，暂停生成该笔转账并引导独立核实。"
+    },
+    {
+      "source_id": "S02",
+      "kind": "fraud_case",
+      "title": "快递丢失理赔被骗二十多万",
+      "summary": "王女士收到“快递无人接收”短信后回拨，对方称商家赠送保单将每月扣费，诱导其下载“全时通”并开启屏幕共享，银行卡信息被获取后转走20多万元。",
+      "signals": [
+        "收到快递无人接收短信后回拨",
+        "被告知赠送保单下月起每月扣费800元",
+        "被要求下载“全时通”软件"
+      ],
+      "evidence": [
+        "开启了屏幕共享"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C02",
+      "review_note": "核对20多万元为已转走资金，800元为对方声称的月扣费。",
+      "scene": "subscriptions",
+      "proposed_check": "区分官方订阅查询与来电要求下载软件、共享屏幕；不索取验证码。"
+    },
+    {
+      "source_id": "S02",
+      "kind": "fraud_case",
+      "title": "取消平台会员险损失十九万",
+      "summary": "宋女士接到自称XX平台客服来电，称其开通会员将自动扣费，诱导开启屏幕共享并提供银行卡信息，手机黑屏后识破并报警，民警启动应急止付成功拦截19万余元。",
+      "signals": [
+        "自称平台客服主动来电称开通会员将自动扣费",
+        "诱导开启屏幕共享",
+        "要求提供银行卡信息"
+      ],
+      "evidence": [
+        "成功拦截 19 万余元损失"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C03",
+      "review_note": "核对19万余元为成功拦截的金额，不写成已损失。",
+      "scene": "subscriptions",
+      "proposed_check": "取消订阅只绑定本人的已核实订阅，不把所谓注销会员转换为对外付款。"
+    },
+    {
+      "source_id": "S02",
+      "kind": "fraud_case",
+      "title": "商品退款理赔被诱导刷单损失五万",
+      "summary": "张女士购买电动搅蒜机出现故障，联系商家客服添加微信后被邀请刷单赚佣金，前期小额返利后累计投入5万余元，最终无法提现。",
+      "signals": [
+        "商品故障后添加商家客服微信",
+        "被邀请参与刷单赚佣金",
+        "前期充值获小额返利"
+      ],
+      "evidence": [
+        "最终无法提现"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C04",
+      "review_note": "核对退款咨询转为刷单诱导，5万余元为累计投入，无法提现。",
+      "scene": "transfer",
+      "proposed_check": "识别退款被引导为刷单充值的意图变化，提示风险并保留用户自主核实路径。"
+    },
+    {
+      "source_id": "S03",
+      "kind": "fraud_case",
+      "title": "冒充抖音客服骗局被家人及时劝阻",
+      "summary": "陈女士接到自称抖音官方客服来电，对方准确报出个人信息并称可办理双倍退款，诱导其下载APP并填写银行卡号、验证码，经家人劝阻后挂断报警，避免财产损失。",
+      "signals": [
+        "自称官方客服准确报出姓名地址购物记录",
+        "称商品质量问题可办理双倍退款",
+        "发来带有平台商标的退款链接"
+      ],
+      "evidence": [
+        "避免了财产损失"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C05",
+      "review_note": "原文同时出现会员扣费和退款借口；保留具体线索，不推断实际损失金额。",
+      "scene": "subscriptions",
+      "proposed_check": "对方知道订单资料不能视为身份认证；不在对话中收集银行卡密码或验证码。"
+    },
+    {
+      "source_id": "S05",
+      "kind": "fraud_case",
+      "title": "以乡村发展基金名义伪造联名卡诈骗",
+      "summary": "客户持伪造的“民生银行+中国乡村发展基金会联名银行卡”及缴费单据到网点咨询，经核实材料均系伪造，其已缴存两年的费用落入诈骗分子手中。",
+      "signals": [
+        "通过熟人推荐参与所谓基金业务",
+        "持有伪造的银行与基金会联名卡",
+        "缴费单据与正规银行单据不符"
+      ],
+      "evidence": [
+        "此前缴纳的两年费用均已落入诈骗分子手中"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C06",
+      "review_note": "标题虽称堵截，但正文明确此前两年费用已被骗，不改写为零损失。",
+      "scene": "transfer",
+      "proposed_check": "熟人推荐或银行标识不能视为业务真实性证明；提示通过独立官方渠道核实。"
+    },
+    {
+      "source_id": "S07",
+      "kind": "service_guide",
+      "title": "民生手机银行智能账簿与我的账单",
+      "summary": "手机银行8.0围绕智能账簿体系，提供资产总览、收支明细和我的账单等财务查看服务。",
+      "signals": [
+        "资产总览支持按账户维度查询资产",
+        "收支明细提供动态标签服务",
+        "收支明细提供年度分析"
+      ],
+      "evidence": [
+        "资产总览支持以账户维度查询资产"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C07",
+      "review_note": "这是公开产品说明，不是真实客户个案，也不宣称当前所有版本的功能。",
+      "scene": "bill",
+      "proposed_check": "查询本人账单与收支明细，应正常完成并说明统计月份和口径，避免一律拒绝。"
+    },
+    {
+      "source_id": "S08",
+      "kind": "consumer_dispute",
+      "title": "网盘自动续费纠纷经上诉后调解退款",
+      "summary": "唐某因网盘自动续费起诉。一审判退239.2元，平台上诉后双方调解，平台退费并补偿。",
+      "signals": [
+        "自动续费提示使用不明显的灰色小字体",
+        "默认消费者同意自动续费构成搭售",
+        "扣费前未以显著方式通知消费者"
+      ],
+      "evidence": [
+        "后双方达成调解"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "id": "C08",
+      "review_note": "补全诉讼进程：一审判退后平台上诉，双方最终调解退款并补偿。",
+      "scene": "subscriptions",
+      "proposed_check": "分开处理停止后续续费与申请历史退款；不虚构退款到账或宣称所有续费均为诈骗。"
+    },
+    {
+      "id": "C09",
+      "source_id": "S09",
+      "kind": "fraud_case",
+      "title": "武汉民警劝阻冒充金融客服屏幕共享诈骗 保住张先生23万元",
+      "summary": "武汉经开区民警接预警赶到张先生住处，在其输入转账密码前夺过手机，阻止其将23万元定期存款转至“安全账户”。张先生已按冒充金融客服指示开启屏幕共享，资金未损失。",
+      "signals": [
+        "冒充金融客服",
+        "诱导开启屏幕共享",
+        "安全账户",
+        "定期存款转活期",
+        "钓鱼网站"
+      ],
+      "evidence": [
+        "已按对方指示开启屏幕共享",
+        "在张先生输入转账密码的前一刻夺过手机"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "outcome_type": "劝阻成功，未损失",
+      "scene": "transfer",
+      "review_note": "已逐条对照公开来源原文；只作公开报道参考，不认定当前用户交易性质，不自动清除风险或执行资金操作。",
+      "proposed_check": "遇到相似线索先暂停转账并独立核实；报道中的拦截、未损失和实际损失分别呈现。"
+    },
+    {
+      "id": "C10",
+      "source_id": "S10",
+      "kind": "fraud_case",
+      "title": "工行济源分行劝阻冒充航司客服屏幕共享诈骗",
+      "summary": "客户被冒充航空公司客服以航班取消、全额退款并赔付300元诱导，下载“云会议”并开启屏幕共享，到工行重置密码时被员工识破劝阻，卸载软件并临时止付，避免数万元损失，具体金额未披露。",
+      "signals": [
+        "冒充航空公司客服",
+        "航班取消退款赔付",
+        "诱导下载云会议",
+        "屏幕共享",
+        "银行卡密码及短信验证码",
+        "银行员工劝阻"
+      ],
+      "evidence": [
+        "要求客户通过屏幕共享功能获取其银行卡号、密码及短信验证码",
+        "帮助客户避免了数万元经济损失"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "outcome_type": "劝阻成功，避免数万元损失",
+      "scene": "transfer",
+      "review_note": "已逐条对照公开来源原文；只作公开报道参考，不认定当前用户交易性质，不自动清除风险或执行资金操作。",
+      "proposed_check": "遇到相似线索先暂停转账并独立核实；报道中的拦截、未损失和实际损失分别呈现。"
+    },
+    {
+      "id": "C11",
+      "source_id": "S11",
+      "kind": "fraud_case",
+      "title": "平顶山何女士陷“关闭扣费”屏幕共享骗局被盗刷19800元",
+      "summary": "57岁何女士接到冒充银行客服电话，对方以关闭自动扣费为由，诱导其下载陌生App、开启屏幕共享并输入银行卡号、密码和扫脸验证，随后银行卡被盗刷19800元，案件正在侦办。",
+      "signals": [
+        "冒充银行客服",
+        "关闭自动扣费",
+        "制造恐慌",
+        "陌生App",
+        "屏幕共享",
+        "扫脸验证",
+        "实际盗刷19800元"
+      ],
+      "evidence": [
+        "开启了屏幕共享功能，被盗刷19800元",
+        "手机突然收到银行发来的两笔消费提醒，共计19800元"
+      ],
+      "evidence_verified": true,
+      "review_status": "reviewed_with_source",
+      "outcome_type": "实际盗刷19800元，案件侦办中",
+      "scene": "transfer",
+      "review_note": "已逐条对照公开来源原文；只作公开报道参考，不认定当前用户交易性质，不自动清除风险或执行资金操作。",
+      "proposed_check": "遇到相似线索先暂停转账并独立核实；报道中的拦截、未损失和实际损失分别呈现。"
+    }
+  ]
+}

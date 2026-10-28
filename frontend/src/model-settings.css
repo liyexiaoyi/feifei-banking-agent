@@ -1,0 +1,19 @@
+.model-settings-trigger { min-height: 44px; padding: 0 14px; font-size: 16px; border: 1px solid #c9d2dc; border-radius: 10px; background: #fff; color: #1f2933; cursor: pointer; }
+.model-settings-trigger:disabled { opacity: .55; cursor: not-allowed; }
+.model-settings-trigger:focus-visible, .model-settings-dialog :focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+.model-settings-backdrop { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(15, 23, 42, .45); }
+.model-settings-dialog { width: min(520px, 100%); max-height: calc(100vh - 32px); overflow: auto; padding: 20px; border-radius: 14px; background: #fff; color: #1f2933; font-size: 16px; line-height: 1.5; box-shadow: 0 20px 50px rgba(15, 23, 42, .25); }
+.model-settings-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.model-settings-head h2 { margin: 0; font-size: 20px; }
+.model-settings-fields { display: grid; gap: 12px; margin: 0; padding: 0; border: 0; }
+.model-settings-row { display: grid; gap: 6px; font-size: 16px; }
+.model-settings-row code { font-size: 16px; word-break: break-all; }
+.model-settings-row input, .model-settings-row select { min-height: 44px; padding: 0 12px; font-size: 16px; border: 1px solid #9aa5b1; border-radius: 8px; background: #fff; color: inherit; }
+.model-settings-check { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 16px; }
+.model-settings-check input { width: 22px; height: 22px; }
+.model-settings-close, .model-settings-submit { min-height: 44px; min-width: 44px; padding: 0 16px; font-size: 16px; border-radius: 8px; cursor: pointer; }
+.model-settings-close { border: 1px solid #c9d2dc; background: #fff; color: inherit; }
+.model-settings-submit { border: 0; background: #1d4ed8; color: #fff; }
+.model-settings-submit:disabled, .model-settings-fields:disabled .model-settings-submit { opacity: .55; cursor: not-allowed; }
+.model-settings-note, .model-settings-hint, .model-settings-status { margin: 0; font-size: 16px; color: #3e4c59; }
+.model-settings-error { margin: 8px 0 0; font-size: 16px; color: #b42318; }

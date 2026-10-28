@@ -1,0 +1,156 @@
+/* Investment profile section: PC only, scoped to .investment-profile. */
+.investment-profile {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1f2933;
+  background: #ffffff;
+  border: 1px solid #c8d0da;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+}
+
+.investment-profile h2,
+.investment-profile h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.investment-profile p,
+.investment-profile li,
+.investment-profile label,
+.investment-profile td,
+.investment-profile th,
+.investment-profile dt,
+.investment-profile dd {
+  font-size: 18px;
+}
+
+.investment-profile button {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 10px 24px;
+  margin: 8px 12px 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #1a4fd6;
+  border: 2px solid #123a9e;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.investment-profile button:hover:not(:disabled) {
+  background: #123a9e;
+}
+
+/* Disabled state uses distinct text and border, not opacity alone, and keeps readable contrast. */
+.investment-profile button:disabled {
+  color: #3e4c59;
+  background: #e4e7eb;
+  border: 2px dashed #7b8794;
+  cursor: not-allowed;
+}
+
+.investment-profile select {
+  min-height: 48px;
+  min-width: 280px;
+  padding: 8px 12px;
+  font-size: 18px;
+  color: #1f2933;
+  background: #ffffff;
+  border: 2px solid #52606d;
+  border-radius: 8px;
+}
+
+.investment-profile input[type='checkbox'] {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.investment-profile label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.investment-profile fieldset {
+  margin: 16px 0;
+  padding: 16px 20px;
+  border: 2px solid #9aa5b1;
+  border-radius: 8px;
+}
+
+.investment-profile legend {
+  padding: 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.investment-profile button:focus-visible,
+.investment-profile select:focus-visible,
+.investment-profile input:focus-visible,
+.investment-profile fieldset:focus-visible,
+.investment-profile a:focus-visible {
+  outline: 3px solid #b44d00;
+  outline-offset: 3px;
+}
+
+/* Alerts and notices carry a text marker and border, not color only. */
+.investment-profile [role='alert'] {
+  margin: 12px 0;
+  padding: 12px 16px;
+  color: #7a0b0b;
+  background: #fdecea;
+  border: 2px solid #b42318;
+  border-left-width: 8px;
+  border-radius: 8px;
+}
+
+.investment-profile [role='alert']::before {
+  content: '注意：';
+  font-weight: 700;
+}
+
+.investment-profile [role='status'] {
+  margin: 12px 0;
+  padding: 12px 16px;
+  color: #0b3d2e;
+  background: #e8f5ef;
+  border: 2px solid #1f7a55;
+  border-left-width: 8px;
+  border-radius: 8px;
+}
+
+.investment-profile table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+
+.investment-profile th,
+.investment-profile td {
+  overflow-wrap: anywhere;
+  white-space: normal;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #9aa5b1;
+}
+
+.investment-profile th {
+  background: #f0f4f8;
+  font-weight: 600;
+}
+
+.investment-profile small,
+.investment-profile .investment-profile-disclaimer {
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
+  color: #3e4c59;
+}

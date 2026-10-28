@@ -1,0 +1,369 @@
+/* task-plan.css — 计划/DAG 展示样式
+   鼠尾草绿 #305c4e · 暖背景 #f7f8f5 · 字色 #273f35 · 柔和细线
+   375px 无溢出 · 按钮 ≥44px · 可见焦点 */
+
+.tp-plan,
+.tp-handoff {
+  background: #f7f8f5;
+  color: #273f35;
+  border: 1px solid #dce5dd;
+  border-radius: 10px;
+  padding: 12px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.tp-plan *,
+.tp-handoff * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* ---------- 计划头 ---------- */
+
+.tp-plan-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid #e4eae3;
+  padding-bottom: 8px;
+}
+
+.tp-plan-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.tp-plan-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid #305c4e;
+  color: #305c4e;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tp-plan-status--paused {
+  border-color: #8a6d3b;
+  color: #8a6d3b;
+  background: #faf6ec;
+}
+
+.tp-plan-status--done {
+  background: #305c4e;
+  color: #f7f8f5;
+}
+
+.tp-plan-status--handoff {
+  border-style: dashed;
+}
+
+.tp-plan-status--cancelled {
+  border-color: #9a4a3c;
+  color: #9a4a3c;
+}
+
+.tp-plan-id {
+  color: #5a7268;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp-plan-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.tp-plan-meta div {
+  display: flex;
+  gap: 4px;
+}
+
+.tp-plan-meta dt {
+  color: #5a7268;
+  font-size: 12px;
+}
+
+.tp-plan-meta dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.tp-plan-reason {
+  margin: 8px 0 0;
+  padding: 6px 10px;
+  background: #faf6ec;
+  border: 1px solid #e6dcc3;
+  border-radius: 6px;
+  color: #6d5a2e;
+  font-size: 12px;
+}
+
+/* ---------- 节点列表 ---------- */
+
+.tp-node-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tp-node {
+  border: 1px solid #e0e7df;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fcfdfb;
+}
+
+.tp-node--failed {
+  border-color: #e0c4bd;
+  background: #fbf4f2;
+}
+
+.tp-node--orphan,
+.tp-node--blocked {
+  border-style: dashed;
+}
+
+.tp-node-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tp-node-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #305c4e;
+  white-space: nowrap;
+}
+
+.tp-state--failed { color: #9a4a3c; }
+.tp-state--blocked,
+.tp-state--orphan { color: #8a6d3b; }
+.tp-state--pending { color: #5a7268; }
+.tp-state--prepared { color: #2e6e5b; }
+
+.tp-node-kind {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tp-node-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 4px;
+  color: #5a7268;
+  font-size: 12px;
+}
+
+.tp-node-note {
+  color: #2e6e5b;
+  font-weight: 600;
+}
+
+.tp-node-error {
+  color: #9a4a3c;
+  font-weight: 600;
+}
+
+.tp-spin {
+  animation: tp-rotate 1s linear infinite;
+}
+
+@keyframes tp-rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- 操作按钮 ---------- */
+
+.tp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #305c4e;
+  background: #ffffff;
+  color: #305c4e;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tp-btn--primary {
+  background: #305c4e;
+  color: #f7f8f5;
+}
+
+.tp-btn--danger {
+  border-color: #9a4a3c;
+  color: #9a4a3c;
+}
+
+.tp-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tp-btn:focus-visible {
+  outline: 2px solid #305c4e;
+  outline-offset: 2px;
+}
+
+.tp-btn--danger:focus-visible {
+  outline-color: #9a4a3c;
+}
+
+.tp-plan-footnote {
+  margin: 10px 0 0;
+  color: #5a7268;
+  font-size: 12px;
+}
+
+/* ---------- 本地交接摘要 ---------- */
+
+.tp-handoff-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #305c4e;
+}
+
+.tp-handoff-title {
+  margin: 0;
+  font-size: 14px;
+  color: #273f35;
+}
+
+.tp-handoff-sub {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #5a7268;
+}
+
+.tp-handoff-banner {
+  margin: 10px 0 0;
+  padding: 6px 10px;
+  border: 1px dashed #305c4e;
+  border-radius: 6px;
+  background: #eef3ee;
+  color: #305c4e;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tp-handoff-reason {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #6d5a2e;
+}
+
+.tp-handoff-block {
+  margin-top: 10px;
+  border-top: 1px solid #e4eae3;
+  padding-top: 8px;
+}
+
+.tp-handoff-h {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: #305c4e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tp-handoff-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.tp-handoff-list li {
+  padding: 4px 8px;
+  border: 1px solid #e0e7df;
+  border-radius: 6px;
+  background: #fcfdfb;
+}
+
+.tp-handoff-checklist li::before {
+  content: '□ ';
+  color: #305c4e;
+}
+
+.handoff-progress {
+  margin: -8px 0 22px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #d7dfd8;
+  border-radius: 14px;
+  color: #253a2d;
+  font-size: max(16px, 1rem);
+  line-height: 1.7;
+}
+.handoff-progress h2 { font-size: 1.2em; margin: 0 0 8px; }
+.handoff-progress button {
+  min-height: 48px;
+  margin: 8px 12px 8px 0;
+  padding: 10px 16px;
+  border: 1px solid #547d69;
+  border-radius: 10px;
+  background: #f3f7f2;
+  color: #284d39;
+  font: inherit;
+  cursor: pointer;
+}
+.handoff-progress button:focus-visible { outline: 3px solid #476b55; outline-offset: 3px; }
+.handoff-progress button:disabled { cursor: default; opacity: .65; }
+.handoff-progress [role="alert"] { color: #963b2b; font-weight: 600; }
+.handoff-progress-notice { padding: 0 20px; font-size: max(16px, 1rem); }
+
+/* ---------- 窄屏（375px） ---------- */
+
+@media (max-width: 375px) {
+  .tp-plan,
+  .tp-handoff {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .tp-actions .tp-btn {
+    flex: 1 1 45%;
+  }
+}

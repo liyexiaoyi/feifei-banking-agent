@@ -1,0 +1,2 @@
+# Windows x64 Wasm runtime; install with --require-hashes --no-deps
+wasmtime==50.0.1 --hash=sha256:a8999581230471f4ff62073b1111eff3a01d45ccec0a908da3f2ae3a499d459c

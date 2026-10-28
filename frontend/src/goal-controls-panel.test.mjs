@@ -1,0 +1,19 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {loadComponent,elements,textContent} from './component-test-loader.mjs'
+const m=await loadComponent('GoalControlsPanel.tsx').catch(()=>null)
+const goal={id:'g-owned',version:4,kind:'birthday',status:'ACTIVE',phase:'WAITING_CONFIRMATION',title:'妈妈生日安排',question:'',summary:['预算500元'],choices:[],steps:[],next_action:'WAIT',operation_ids:['op-owned'],paused:false,pause_gen:0}
+const state={paused:[],busy:false,unknown:false,error:''}
+function tree(p={}){assert(m?.default,'goal controls panel missing');return m.default({current:goal,state,intent:null,agreed:false,onRequest:()=>{},onAgree:()=>{},onCancel:()=>{},onConfirm:()=>{},onCheck:()=>{},...p})}
+const button=(t,label)=>elements(t,'button').find(x=>textContent(x).includes(label))
+test('pause and switch are explicit requests, never render-time side effects',()=>{const calls=[];const t=tree({onRequest:(g,a)=>calls.push({g,a})});assert.equal(calls.length,0);button(t,'暂停目标').props.onClick();assert.equal(calls[0].g.id,goal.id);assert.equal(calls[0].a,'pause');assert.match(textContent(t),/不会.*退款|不.*退款/);assert.match(textContent(t),/预留/)})
+test('UNKNOWN offers only read-only checking and no save/switch/resume shortcut',()=>{const t=tree({current:{...goal,status:'UNKNOWN'},state:{...state,paused:[{...goal,id:'saved',status:'PAUSED',paused:true}]}});assert(!elements(t,'button').some(b=>/暂停|切换|恢复/.test(textContent(b))&&!b.props.disabled));assert(button(t,'核对'))})
+test('saved goal can only be resumed by a new explicit request',()=>{const calls=[];const t=tree({current:null,state:{...state,paused:[{...goal,status:'PAUSED',paused:true,pause_gen:1}]},onRequest:(g,a)=>calls.push(a)});button(t,'恢复').props.onClick();assert.deepEqual(calls,['resume'])})
+test('saved goal cannot silently replace another active current goal',()=>{const t=tree({state:{...state,paused:[{...goal,id:'saved',status:'PAUSED',paused:true}]}});assert(elements(t,'button').filter(b=>/恢复/.test(textContent(b))).every(b=>b.props.disabled));assert.match(textContent(t),/先.*切换/)})
+test('confirmation dialog needs a fresh explicit checkbox and forbids auto payment copy',()=>{const intent={goal,action:'pause'},t=tree({intent});assert([...elements(t,'div'),...elements(t,'section'),...elements(t,'dialog')].some(x=>x.props?.role==='dialog'||x.type==='dialog'));assert.match(textContent(t),/妈妈生日安排/);assert.match(textContent(t),/自动确认|自动付款/);assert(button(t,'确认').props.disabled);assert.equal(button(tree({intent,agreed:true}),'确认').props.disabled,false)})
+test('pending unknown control disables every new control and only checks original request',()=>{let n=0;const t=tree({state:{...state,unknown:true},onCheck:()=>n++});assert(!elements(t,'button').some(b=>/暂停|切换|恢复|确认/.test(textContent(b))&&!b.props.disabled));button(t,'核对').props.onClick();assert.equal(n,1)})
+
+test('known risk-paused goal allows explicit switch while refusing resume',()=>{const t=tree({current:{...goal,status:'PAUSED',paused:false,reason:'RISK_CHANGED'}});assert.equal(button(t,'切换到新需求').props.disabled,false);assert(elements(t,'button').filter(b=>/恢复/.test(textContent(b))).every(b=>b.props.disabled))})
+test('an already-open intent cannot confirm after the current goal becomes UNKNOWN',()=>{const t=tree({current:{...goal,status:'UNKNOWN'},intent:{goal,action:'pause'},agreed:true});assert.equal(button(t,'确认').props.disabled,true)})
+
+test('not-ready controls block new mutations but preserve read-only checking',()=>{const t=tree({ready:false});assert.equal(button(t,'暂停目标').props.disabled,true);assert.equal(button(t,'切换到新需求').props.disabled,true);let n=0;const u=tree({ready:false,state:{...state,unknown:true},onCheck:()=>n++});assert.equal(button(u,'核对').props.disabled,false);button(u,'核对').props.onClick();assert.equal(n,1)})

@@ -1,0 +1,146 @@
+/* DeploymentGate — FF 浅米白 / 森林绿，375px 无横向溢出 */
+
+.dg-wrap {
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: #f7f3ea; /* 浅米白 */
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: #1f3d2b;
+}
+
+.dg-wrap *,
+.dg-wrap *::before,
+.dg-wrap *::after {
+  box-sizing: border-box;
+}
+
+.dg-card {
+  width: 100%;
+  max-width: 343px; /* 375 - 16*2 */
+  background: #fffdf7;
+  border: 1px solid #e4ddc9;
+  border-radius: 16px;
+  padding: 28px 22px 24px;
+  box-shadow: 0 6px 24px rgba(31, 61, 43, 0.08);
+  text-align: center;
+}
+
+.dg-mark {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #e8f0e6;
+  border: 1px solid #cdddcb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dg-mark-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2e5c3e; /* 森林绿 */
+}
+
+.dg-wrap[aria-busy='true'] .dg-mark-dot {
+  animation: dg-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes dg-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+.dg-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #1f3d2b;
+}
+
+.dg-subtitle {
+  margin: 0 0 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2e5c3e;
+}
+
+.dg-desc {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4a5d4f;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.dg-desc-warn {
+  margin-bottom: 22px;
+  padding: 10px 12px;
+  background: #f2ecdc;
+  border-left: 3px solid #2e5c3e;
+  border-radius: 6px;
+  color: #3c4f41;
+}
+
+.dg-retry {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #2e5c3e;
+  color: #fdfcf6;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dg-retry:hover:not(:disabled),
+.dg-retry:focus-visible:not(:disabled) {
+  background: #24492f;
+  outline: none;
+}
+
+.dg-retry:focus-visible {
+  box-shadow: 0 0 0 3px rgba(46, 92, 62, 0.35);
+}
+
+.dg-retry:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dg-hint {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8a927f;
+}
+
+@media (max-width: 360px) {
+  .dg-card {
+    padding: 22px 16px 20px;
+  }
+  .dg-title {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) { .dg-wrap[aria-busy='true'] .dg-mark-dot { animation: none; } }

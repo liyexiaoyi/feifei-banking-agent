@@ -1,0 +1,51 @@
+.goal-controls {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px;
+  background: #f7f8f5;
+  color: #1f2a26;
+  border: 1px solid #244f43;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.goal-controls h3 { margin: 0 0 4px; font-size: 18px; color: #244f43; }
+.goal-controls h4 { margin: 12px 0 4px; font-size: 17px; color: #244f43; }
+.goal-controls .gc-note, .goal-controls .gc-hint { margin: 4px 0; color: #3c4a44; }
+.goal-controls .gc-title, .goal-controls .gc-status, .goal-controls .gc-question { font-weight: 600; }
+.goal-controls .gc-question { color: #244f43; }
+.goal-controls .gc-alert { margin: 8px 0; padding: 8px 12px; border-left: 4px solid #8a4b16; background: #fff; color: #5a3210; }
+.goal-controls .gc-alert::before { content: '注意：'; font-weight: 600; }
+.goal-controls .gc-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.goal-controls .gc-saved ul, .goal-controls .gc-summary { margin: 8px 0; padding-left: 20px; }
+.goal-controls .gc-saved li { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 4px 0; }
+.goal-controls .gc-modal { margin-top: 12px; padding: 16px; background: #fff; border: 2px solid #244f43; border-radius: 10px; }
+.goal-controls .gc-agree { display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
+.goal-controls .gc-agree input { width: 24px; height: 24px; margin: 0; flex: none; }
+.goal-controls .gc-agree input:focus-visible { outline: 3px solid #244f43; outline-offset: 2px; }
+.goal-controls button {
+  box-sizing: border-box;
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 100%;
+  padding: 8px 16px;
+  font: inherit;
+  text-align: left;
+  white-space: normal;
+  color: #fff;
+  background: #244f43;
+  border: 1px solid #244f43;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.goal-controls button.gc-secondary { color: #244f43; background: #fff; }
+.goal-controls button:hover:not(:disabled) { background: #1b3d34; color: #fff; }
+.goal-controls button:focus-visible { outline: 3px solid #244f43; outline-offset: 2px; box-shadow: 0 0 0 2px #f7f8f5; }
+.goal-controls button:disabled { cursor: not-allowed; color: #5b665f; background: #e3e7e1; border: 1px dashed #b9c2bb; }
+@media (max-width: 480px) {
+  .goal-controls { padding: 12px; }
+  .goal-controls .gc-actions button { width: 100%; }
+}

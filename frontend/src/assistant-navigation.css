@@ -1,0 +1,170 @@
+.assistant-navigation {
+  --an-cream: #f7f8f5;
+  --an-green: #244f43;
+  --an-green-soft: rgba(36, 79, 67, 0.1);
+  --an-ink: #1f2a26;
+  --an-muted: #5b6b65;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  flex: 0 1 auto;
+  color: var(--an-ink);
+}
+
+.assistant-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.assistant-navigation .assistant-navigation__button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.assistant-navigation .assistant-navigation__button--primary {
+  font-weight: 600;
+  background: var(--an-cream);
+  border-color: var(--an-green-soft);
+}
+
+.assistant-navigation .assistant-navigation__button--reference {
+  font-size: 0.92em;
+  color: var(--an-muted);
+}
+
+.assistant-navigation .assistant-navigation__button:hover {
+  background: var(--an-green-soft);
+}
+
+.assistant-navigation .assistant-navigation__button.is-current {
+  background: var(--an-green);
+  border-color: var(--an-green);
+  color: var(--an-cream);
+}
+
+.assistant-navigation .assistant-navigation__button:focus-visible,
+.assistant-navigation .assistant-navigation__summary:focus-visible {
+  outline: 3px solid var(--an-green);
+  outline-offset: 2px;
+}
+
+.assistant-navigation .assistant-navigation__button.is-current:focus-visible {
+  outline-color: var(--an-ink);
+}
+
+.assistant-navigation .assistant-navigation__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.assistant-navigation .assistant-navigation__count {
+  flex: none;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--an-green);
+  color: var(--an-cream);
+  font-size: 0.78em;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.assistant-navigation .assistant-navigation__button.is-current .assistant-navigation__count {
+  background: var(--an-cream);
+  color: var(--an-green);
+}
+
+.assistant-navigation .assistant-navigation__note {
+  margin: 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--an-green);
+  background: var(--an-cream);
+  color: var(--an-muted);
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.assistant-navigation .assistant-navigation__more {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-top: 1px solid var(--an-green-soft);
+  padding-top: 6px;
+}
+
+.assistant-navigation .assistant-navigation__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  color: var(--an-green);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.assistant-navigation .assistant-navigation__summary:hover {
+  background: var(--an-green-soft);
+}
+
+.assistant-navigation .assistant-navigation__summary-current {
+  color: var(--an-muted);
+  font-size: 0.82em;
+  font-weight: 400;
+}
+
+/* Long PC sidebars: the reference list scrolls within itself instead of overlapping later sidebar content. */
+.assistant-navigation .assistant-navigation__references {
+  margin-top: 4px;
+  max-height: min(48vh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 2px;
+}
+
+/* Comfortable reading mode: keep labels on one readable line; the pending badge may wrap to its own row and the button grows taller. */
+.app-shell.reading-comfortable .assistant-navigation .assistant-navigation__button {
+  flex-wrap: wrap;
+  row-gap: 2px;
+  white-space: normal;
+}
+
+.app-shell.reading-comfortable .assistant-navigation .assistant-navigation__label {
+  flex: 0 0 auto;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.app-shell.reading-comfortable .assistant-navigation .assistant-navigation__count {
+  flex: 0 0 auto;
+  max-width: 100%;
+  overflow-wrap: normal;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .assistant-navigation .assistant-navigation__button {
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+}

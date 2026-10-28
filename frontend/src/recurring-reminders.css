@@ -1,0 +1,13 @@
+.recurring-reminders-panel { margin-bottom:24px; padding:24px; line-height:1.7; }
+.recurring-reminders-panel h2 { margin:0 0 8px; }
+.recurring-reminders-panel h3 { margin:24px 0 12px; }
+.recurring-note { color:#566e60; margin:8px 0; }
+.recurring-list { list-style:none; padding:0; margin:12px 0; }
+.recurring-list li { display:flex; align-items:center; flex-wrap:wrap; gap:8px 20px; padding:16px 20px; margin:12px 0; background:var(--cream); border-radius:10px; overflow-wrap:anywhere; }
+.recurring-list b { color:var(--green); min-width:8em; }
+.recurring-list span { font-variant-numeric:tabular-nums; }
+.recurring-seen { color:#566e60; }
+.recurring-reminders-panel .outline-button { min-height:48px; padding:0 20px; font-size:inherit; }
+.recurring-reminders-panel .outline-button:disabled { opacity:.55; cursor:not-allowed; }
+.recurring-consent { display:flex; align-items:center; flex-wrap:wrap; gap:16px; }
+.recurring-reminders-panel [role='alert'] { padding:16px; border:1px solid #c2a473; border-radius:8px; background:#fbf7ee; }

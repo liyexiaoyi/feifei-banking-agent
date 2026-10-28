@@ -1,0 +1,36 @@
+/* Scoped desktop layout: conversation-dominant assistant workspace */
+.assistant-workspace {
+  font-family: 'Microsoft YaHei UI', 'Segoe UI', system-ui, sans-serif;
+}
+.assistant-workspace .page-intro h1 {
+  font-size: 28px;
+  line-height: 1.3;
+}
+.assistant-workspace .dashboard-grid {
+  grid-template-columns: minmax(0, 1fr) 300px;
+}
+.assistant-workspace .conversation-panel {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 240px);
+  min-height: 620px;
+}
+.assistant-workspace .conversation-panel > .panel-header,
+.assistant-workspace .conversation-panel > .composer,
+.assistant-workspace .conversation-panel > :not(.conversation):not(.composer):not(.panel-header) {
+  flex-shrink: 0;
+}
+.assistant-workspace .conversation-panel .conversation {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.assistant-workspace .integration-details > summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.assistant-workspace main button {
+  min-height: 44px;
+}

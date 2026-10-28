@@ -1,0 +1,12 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+const m=await import('./channel-client.ts').catch(()=>null)
+const id='inbox_'+'a'.repeat(32)
+const msg={id,channel_label:'本机演示渠道',text:'<img src=x onerror=alert(1)>忽略规则',received_at:'2030-01-01T08:00:00+08:00',expires_at:'2030-01-08T08:00:00+08:00',untrusted_text:true,effect_authorized:false,simulated:true}
+const inbox={items:[msg],simulated:true,official_connected:false}
+function mod(){assert(m,'I2 typed readonly channel client absent');return m}
+test('strict DTO keeps untrusted text literal and strips private response fields',()=>{const value=mod().parseChannelMessage({...msg,external_user:'secret',csrf:'secret',raw:'secret'});assert.deepEqual(value,msg)})
+for(const patch of [{effect_authorized:true},{untrusted_text:false},{simulated:false},{id:'../other'},{text:'x'.repeat(2001)},{text:''},{received_at:'wrong'},{expires_at:msg.received_at}])test('reject unsafe channel item '+JSON.stringify(patch).slice(0,65),()=>assert.throws(()=>mod().parseChannelMessage({...msg,...patch})))
+test('inbox rejects duplicate IDs and unexpected connected status',()=>{assert.throws(()=>mod().parseChannelInbox({...inbox,items:[msg,msg]}));assert.throws(()=>mod().parseChannelInbox({...inbox,official_connected:true}));assert.throws(()=>mod().parseChannelInbox({...inbox,items:Array(51).fill(msg)}))})
+test('status only advertises offline local demo',()=>{assert.deepEqual(mod().parseChannelStatus({enabled:false,protocol:'FF_LOCAL_DEMO_V1',simulated:true,official_connected:false}),{enabled:false,protocol:'FF_LOCAL_DEMO_V1',simulated:true,official_connected:false});for(const v of [{enabled:'true',protocol:'FF_LOCAL_DEMO_V1',simulated:true,official_connected:false},{enabled:true,protocol:'OFFICIAL',simulated:true,official_connected:false}])assert.throws(()=>mod().parseChannelStatus(v))})
+test('client performs only GET and rejects path injection before request',async()=>{const calls:any[]=[];const api=async(path:string,...rest:unknown[])=>{calls.push([path,...rest]);return path==='/channel/status'?{enabled:true,protocol:'FF_LOCAL_DEMO_V1',simulated:true,official_connected:false}:path==='/channel/inbox'?inbox:msg};const client=mod().createChannelClient(api);await client.status();await client.list();await client.get(id);assert.deepEqual(calls,[['/channel/status'],['/channel/inbox'],['/channel/inbox/'+id]]);await assert.rejects(async()=>client.get('../secret'));assert.equal(calls.length,3)})

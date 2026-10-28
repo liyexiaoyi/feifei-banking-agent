@@ -1,0 +1,85 @@
+/* Normal mode: 16px. Selectors stay below .app-shell.reading-comfortable :where(...)
+   specificity so the existing global 18px reading mode still applies. */
+.channel-inbox {
+  display: grid;
+  gap: 1rem;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: max(1rem, 16px);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.channel-inbox :where(h2, p, ul) { margin: 0; }
+.channel-inbox__notice {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  min-width: 0;
+}
+.channel-inbox__badge,
+.channel-inbox__label { font-weight: 700; }
+.channel-inbox__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.channel-inbox__error {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid currentColor;
+  font-weight: 700;
+}
+.channel-inbox__status { font-weight: 700; }
+.channel-inbox__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.channel-inbox__item {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #8a8f98;
+  border-radius: 8px;
+  min-width: 0;
+}
+.channel-inbox__text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.channel-inbox__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+.channel-inbox button {
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  cursor: pointer;
+  justify-self: start;
+}
+.channel-inbox button:focus-visible {
+  outline: 3px solid #1a5fb4;
+  outline-offset: 3px;
+}
+.channel-inbox button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  border-style: dashed;
+}

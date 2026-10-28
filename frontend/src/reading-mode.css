@@ -1,0 +1,171 @@
+.app-shell .reading-mode-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+.app-shell .reading-mode-control button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #647b6c;
+  border-radius: 8px;
+  background: #fff;
+  color: #243e30;
+  font: inherit;
+  white-space: normal;
+}
+.app-shell .reading-mode-control button[aria-pressed='true'] {
+  background: #243e30;
+  color: #fff;
+  border-color: #243e30;
+}
+.app-shell .reading-mode-control button:focus-visible {
+  outline: 3px solid #527dba;
+  outline-offset: 3px;
+}
+.app-shell .topbar,
+.app-shell .topbar-right {
+  flex-wrap: wrap;
+  gap: 12px;
+  height: auto;
+  min-height: 60px;
+}
+.app-shell .topbar { padding-top: 12px; padding-bottom: 12px; }
+.app-shell main { container-type: inline-size; }
+.app-shell .safety-banner { flex-wrap: wrap; }
+.app-shell .safety-banner__copy { flex: 1 1 320px; }
+.app-shell .safety-banner__action { flex: 1 1 200px; max-width: none; }
+.app-shell .main-shell,
+.app-shell main,
+.app-shell .dashboard-grid > *,
+.app-shell .metrics > *,
+.app-shell .message-body,
+.app-shell .panel,
+.app-shell .topbar > * {
+  min-width: 0;
+}
+.app-shell .dashboard-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 320px); }
+.app-shell .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.app-shell .task-shortcuts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.app-shell .operation-card,
+.app-shell .payee-card,
+.app-shell .metric-value,
+.app-shell .subscription-price,
+.app-shell .inline-bill,
+.app-shell .balance-row {
+  overflow-wrap: anywhere;
+  white-space: normal;
+  min-width: 0;
+}
+.app-shell .operation-details > span,
+.app-shell .operation-details b,
+.app-shell .operation-details small {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.app-shell.reading-normal .operation-card,
+.app-shell.reading-normal .operation-card :where(p, span, b, small, em, h3, label, input, button, .operation-head, .operation-details, .operation-warning, .verification, .operation-id, .receipt),
+.app-shell.reading-normal :is(.payee-card, .safety-card, .safety-banner, .small-note, .composer-actions, .subscription-info) :where(p, span, b, small, em, label, button),
+.app-shell.reading-normal .security-value small {
+  font-size: max(1rem, 16px);
+  line-height: 1.65;
+}
+.app-shell.reading-normal .operation-amount { font-size: max(1.5rem, 24px); }
+.app-shell.reading-normal .safety-card p {
+  font-size: max(1rem, 16px) !important;
+}
+.app-shell.reading-comfortable {
+  font-size: max(1.125rem, 18px);
+  line-height: 1.75;
+}
+.app-shell.reading-comfortable :where(div, section, article, aside, nav, header, footer, form, p, span, small, b, strong, em, a, label, li, dt, dd, time, th, td, button, input, textarea, select) {
+  font-size: max(1.125rem, 18px);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.app-shell.reading-comfortable :where(h1, h2, h3) { line-height: 1.5; }
+.app-shell.reading-comfortable :is(.safety-card p, .memory-receipt > p) {
+  font-size: max(1.125rem, 18px) !important;
+}
+.app-shell.reading-comfortable h1 { font-size: max(1.75rem, 28px); }
+.app-shell.reading-comfortable :where(h2, h3) { font-size: max(1.25rem, 20px); }
+.app-shell.reading-comfortable :is(.metric-value, .operation-amount, .inline-bill-total) { font-size: max(1.75rem, 28px); }
+.app-shell.reading-comfortable :where(button, input, textarea, select, .nav-item) {
+  min-height: 44px;
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: normal;
+}
+.app-shell.reading-comfortable :where(input, textarea) { min-width: 0; }
+.app-shell.reading-comfortable textarea::placeholder { font-size: max(1.125rem, 18px); }
+.app-shell.reading-comfortable .task-shortcuts__label {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+.app-shell.reading-comfortable :is(.operation-actions, .verification > div, .composer-actions, .panel-header, .panel-header > div, .section-title, .metric-foot, .subscription-list article, .memory-card__foot, .memory-actions, .memory-search, footer) {
+  flex-wrap: wrap;
+  gap: 10px;
+  height: auto;
+}
+.app-shell.reading-comfortable .verification input { flex: 1 1 160px; width: 100%; }
+.app-shell.reading-comfortable .subscription-info { min-width: 0; }
+.app-shell.reading-comfortable .receipt-check dl { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+.app-shell .table-wrap { max-width: 100%; overflow-x: auto; }
+@media (max-width: 1100px) {
+  .app-shell .dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+  .app-shell .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app-shell .metric.asset { grid-column: 1 / -1; }
+}
+@container (max-width: 800px) {
+  .app-shell .dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+  .app-shell .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app-shell .metric.asset { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .app-shell .sidebar { box-sizing: border-box; max-width: 100%; }
+  .app-shell .main-shell { width: 100%; margin-left: 0; }
+  .app-shell .metrics,
+  .app-shell .task-shortcuts { grid-template-columns: minmax(0, 1fr); }
+  .app-shell .topbar-right { max-width: 100%; }
+}
+
+.app-shell .verification-lock{padding:22px;font-size:max(16px,1em);line-height:1.65;margin:16px 0}
+.app-shell .verification-lock h2{font:inherit;font-size:1.2em;font-weight:700;margin:0 0 10px}
+.app-shell .verification-lock p{font:inherit;margin:0 0 14px}
+.app-shell .verification-lock .outline-button{font:inherit;font-weight:600;min-height:48px}
+
+/* Sidebar scroll repair: fixed 100vh sidebar must scroll its own content so every nav item is reachable */
+.app-shell .sidebar {
+  box-sizing: border-box;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-padding-block: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.app-shell .sidebar > *,
+.app-shell .sidebar nav {
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.app-shell .sidebar > :last-child { margin-bottom: 21px; }
+.app-shell .sidebar :is(nav button, nav a, .nav-item) {
+  flex-shrink: 0;
+  min-height: 44px;
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+.app-shell .sidebar :is(nav button, nav a, .nav-item):focus-visible {
+  outline: 3px solid #527dba;
+  outline-offset: -3px;
+}

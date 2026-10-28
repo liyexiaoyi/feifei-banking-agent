@@ -1,0 +1,34 @@
+.cc-panel {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #c6cec0;
+  border-radius: 16px;
+  background: #f7f4e9;
+  color: #173d31;
+  font: inherit;
+  line-height: 1.6;
+}
+.cc-panel *, .cc-panel *::before, .cc-panel *::after { box-sizing: border-box; }
+.cc-panel .cc-title { margin: 0 0 12px; font-size: 26px; line-height: 1.3; }
+.cc-panel .cc-notice { margin: 16px 0; padding: 14px 18px; border-left: 4px solid #315f49; background: #eceee2; }
+.cc-panel .cc-error { margin: 16px 0; padding: 18px; border: 1px solid #a74b37; border-radius: 8px; background: #fff0e7; color: #793220; overflow-wrap: anywhere; }
+.cc-panel .cc-field { display: flex; flex-direction: column; gap: 6px; margin: 16px 0; }
+.cc-panel .cc-field label { font-weight: 600; }
+.cc-panel .cc-input { min-height: 44px; padding: 8px 12px; border: 1px solid #8a9a88; border-radius: 8px; background: #fffdf5; color: #173d31; font: inherit; }
+.cc-panel .cc-input:focus-visible { outline: 3px solid #876416; outline-offset: 2px; }
+.cc-panel .cc-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 20px; margin: 20px 0; padding: 20px; border: 1px solid #c6cec0; border-radius: 12px; background: #fffdf5; }
+.cc-panel .cc-facts dt { color: #4e6355; font-size: 13px; }
+.cc-panel .cc-facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.cc-panel .cc-pending { margin: 16px 0; padding: 18px; border: 2px dashed #876416; border-radius: 8px; background: #fbf3dc; }
+.cc-panel .cc-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.cc-panel .cc-text { margin: 12px 0; }
+.cc-panel .cc-hint { margin: 8px 0; color: #4e6355; font-size: 13px; }
+.cc-panel .cc-button { min-height: 44px; padding: 10px 22px; border: 1px solid #214e3a; border-radius: 8px; font: inherit; font-weight: 600; line-height: 1.4; cursor: pointer; }
+.cc-panel .cc-primary { width: 100%; background: #214e3a; color: #fffdf5; }
+.cc-panel .cc-secondary { background: transparent; color: #214e3a; }
+.cc-panel .cc-refresh { margin-top: 16px; }
+.cc-panel .cc-primary:hover:not(:disabled) { background: #153b2b; }
+.cc-panel .cc-secondary:hover:not(:disabled) { background: #e5ebdd; }
+.cc-panel .cc-button:focus-visible { outline: 3px solid #876416; outline-offset: 4px; }
+.cc-panel .cc-button:disabled { background: #e3e5da; border-color: #a9b2a4; color: #596254; cursor: not-allowed; }

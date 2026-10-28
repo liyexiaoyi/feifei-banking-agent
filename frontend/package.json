@@ -1,0 +1,24 @@
+{
+  "name": "ff-agent-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "test": "node --test src/reading-mode.test.ts src/reading-mode-control.test.mjs src/requests.test.ts src/recovery-components.test.mjs src/workspace.test.mjs src/task-plan.test.mjs src/receipt-check.test.mjs src/deployment.test.ts src/deployment-component.test.mjs src/integrations.test.ts src/integration-card.test.mjs src/latest-refresh.test.ts src/safety-reference.test.ts src/safety-reference-panel.test.mjs src/cards.test.ts src/cards-panel.test.mjs src/operation-copy.test.ts src/chat-cards-panel.test.mjs src/virtual-applications.test.ts src/virtual-cards-panel.test.mjs src/wealth.test.ts src/wealth-summary.test.mjs src/verification-input.test.ts src/handoff-progress.test.ts src/handoff-progress-panel.test.mjs src/handoff-progress-controller.test.ts src/annual-bill.test.ts src/annual-bill-panel.test.mjs src/recurring-reminders.test.ts src/recurring-reminders-panel.test.mjs src/reminder-monitor.test.ts src/investment-profile.test.ts src/investment-profile-panel.test.mjs src/sandbox-client.test.mjs src/sandbox-controller.test.mjs src/sandbox-panel.test.mjs src/aa-client.test.ts src/aa-client-extra.test.ts src/operator-dto.test.ts src/aa-requests-panel.test.mjs src/operator-client.test.ts src/operator-client-extra.test.ts src/operator-panels.test.mjs src/card-control-client.test.ts src/card-control-controller.test.ts src/card-control-panel.test.mjs src/card-operation-summary.test.mjs src/scheduled-client.test.ts src/scheduled-controller.test.ts src/scheduled-panel.test.mjs src/birthday-client.test.mjs src/birthday-controller.test.mjs src/birthday-panel.test.mjs src/birthday-flow-card.test.mjs src/channel-client.test.ts src/session-context.test.ts src/session-api.test.ts src/session-boundary-gate.test.mjs src/codegen-client.test.mjs src/codegen-controller.test.mjs src/codegen-panel.test.mjs src/conversation-goal-panel.test.mjs src/assistant-navigation.test.mjs src/goal-control-client.test.mjs src/goal-controls-panel.test.mjs src/goal-operation-binding.test.ts src/model-settings.test.mjs",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.468.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "typescript": "~5.7.0",
+    "vite": "^6.0.0"
+  }
+}

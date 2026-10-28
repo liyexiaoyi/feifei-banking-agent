@@ -1,0 +1,360 @@
+{
+  "version": "sprint-v1",
+  "created_date": "2026-10-26",
+  "purpose": "30条合成回归；不是原始案件、训练集或现实检测准确率。",
+  "provenance_notes": "case短引文逐字核对本轮官方抓取。所有variants为主题派生或独立合成，derived_from不声称情节逐字来自案件。安全账户/投资资格变体没有当前原案证据，保持derived_from=null。C07为产品指南，C08为续费争议，不标诈骗。",
+  "cases": [
+    {
+      "id": "C01",
+      "source_url": "https://www.bypc.gov.cn/zfxxgk/bmdwxzjd/xzjd/xpljdbsc/fdzdgknr/jwgk/dzsq/cwgk/art/2025/art_7c2bc9b394b14ec9b09b1af2b41c9e0d.html",
+      "scenario": "transfer",
+      "excerpt": "累计被骗取4.5万元",
+      "kind": "fraud_case",
+      "source_id": "S01",
+      "fetched_at": "2026-10-25T16:36:59.978547+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C02",
+      "source_url": "https://www.huadu.gov.cn/zmhd/zsk/ga/content/post_10570403.html",
+      "scenario": "subscriptions",
+      "excerpt": "开启了屏幕共享",
+      "kind": "fraud_case",
+      "source_id": "S02",
+      "fetched_at": "2026-10-25T16:36:59.979669+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C03",
+      "source_url": "https://www.huadu.gov.cn/zmhd/zsk/ga/content/post_10570403.html",
+      "scenario": "subscriptions",
+      "excerpt": "成功拦截 19 万余元损失",
+      "kind": "fraud_case",
+      "source_id": "S02",
+      "fetched_at": "2026-10-25T16:36:59.979669+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C04",
+      "source_url": "https://www.huadu.gov.cn/zmhd/zsk/ga/content/post_10570403.html",
+      "scenario": "transfer",
+      "excerpt": "最终无法提现",
+      "kind": "fraud_case",
+      "source_id": "S02",
+      "fetched_at": "2026-10-25T16:36:59.979669+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C05",
+      "source_url": "https://nxca.miit.gov.cn/ztzl/Appqhyhqyzxzz/art/2025/art_b2d6ceb967fc431fa98cdceba479cadd.html",
+      "scenario": "subscriptions",
+      "excerpt": "避免了财产损失",
+      "kind": "fraud_case",
+      "source_id": "S03",
+      "fetched_at": "2026-10-25T16:36:59.979669+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C06",
+      "source_url": "https://www.cmbc.com.cn/cmbc_new/2026-05/19/article_2026051910282082613.html",
+      "scenario": "transfer",
+      "excerpt": "此前缴纳的两年费用均已落入诈骗分子手中",
+      "kind": "fraud_case",
+      "source_id": "S05",
+      "fetched_at": "2026-10-25T16:37:04.738944+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C07",
+      "source_url": "https://www.cmbc.com.cn/dzyx/sjyx/kxht/index.htm",
+      "scenario": "bill",
+      "excerpt": "资产总览支持以账户维度查询资产",
+      "kind": "service_guide",
+      "source_id": "S07",
+      "fetched_at": "2026-10-25T16:37:06.822542+00:00",
+      "evidence_verified": true
+    },
+    {
+      "id": "C08",
+      "source_url": "https://www.gzwxb.gov.cn/context/contextId/213401",
+      "scenario": "subscriptions",
+      "excerpt": "后双方达成调解",
+      "kind": "consumer_dispute",
+      "source_id": "S08",
+      "fetched_at": "2026-10-25T16:37:07.166402+00:00",
+      "evidence_verified": true
+    }
+  ],
+  "variants": [
+    {
+      "id": "V01",
+      "scenario": "fake_support",
+      "label": "fraud",
+      "text": "客服说我开通了会员，下个月自动扣费，让我下载一个会议软件并开启屏幕共享来取消。",
+      "expected_hold": true,
+      "derived_from": "C03",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V02",
+      "scenario": "fake_support",
+      "label": "fraud",
+      "text": "来电自称平台客服，说我的退款通道没关闭，让我把银行卡号和短信验证码报给他。",
+      "expected_hold": true,
+      "derived_from": "C05",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V03",
+      "scenario": "fake_support",
+      "label": "fraud",
+      "text": "收到短信说快递丢失可以理赔，对方让我点他发来的链接填卡号和密码。",
+      "expected_hold": true,
+      "derived_from": "C02",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V04",
+      "scenario": "fake_support",
+      "label": "normal",
+      "text": "我想查一下自己视频会员的自动续费签约情况，在手机银行哪个位置看。",
+      "expected_hold": false,
+      "derived_from": "C08",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V05",
+      "scenario": "fake_support",
+      "label": "normal",
+      "text": "我的账单里有一笔不认识的小额扣款，帮我查一下这笔记账的明细和商户。",
+      "expected_hold": false,
+      "derived_from": "C07",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V06",
+      "scenario": "fake_support",
+      "label": "normal",
+      "text": "帮我把已经签约的视频会员自动续费关掉，只停止后续扣费，不影响其他业务。",
+      "expected_hold": false,
+      "derived_from": "C08",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V07",
+      "scenario": "fake_support",
+      "label": "negation",
+      "text": "我没有被扣费，也没人让我共享屏幕，只是想知道这种客服电话怎么核实。",
+      "expected_hold": false,
+      "derived_from": "C03",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V08",
+      "scenario": "fake_support",
+      "label": "negation",
+      "text": "我已经挂断那个电话，没有下载任何软件，也没提供信息，没有损失。",
+      "expected_hold": false,
+      "derived_from": "C05",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V09",
+      "scenario": "fake_support",
+      "label": "consult",
+      "text": "怎么判断来电自称平台客服的人是真是假？有哪些可以自己核实的渠道？",
+      "expected_hold": false,
+      "derived_from": "C02",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V10",
+      "scenario": "fake_support",
+      "label": "consult",
+      "text": "对方让我开屏幕共享，我该问什么、查什么才能确认是不是诈骗套路？",
+      "expected_hold": false,
+      "derived_from": "C02",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V11",
+      "scenario": "loan_fee",
+      "label": "fraud",
+      "text": "贷款专员说额度批了，但要先交验资保证金才能提现，让我现在转过去。",
+      "expected_hold": true,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V12",
+      "scenario": "loan_fee",
+      "label": "fraud",
+      "text": "对方说我卡号填错导致账户冻结，要交解冻费才能放款，让我马上转钱。",
+      "expected_hold": true,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V13",
+      "scenario": "loan_fee",
+      "label": "fraud",
+      "text": "电话说我征信有问题，交钱走内部通道就能洗白，让我把钱打到指定账户。",
+      "expected_hold": true,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V14",
+      "scenario": "loan_fee",
+      "label": "normal",
+      "text": "我想查自己贷款的还款计划和本期应还金额，在哪里能看到分期的明细。",
+      "expected_hold": false,
+      "derived_from": "C07",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V15",
+      "scenario": "loan_fee",
+      "label": "normal",
+      "text": "我打算提前还款，按合同要付多少违约金，怎么计算？",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V16",
+      "scenario": "loan_fee",
+      "label": "normal",
+      "text": "我的信用卡被多扣了一笔年费，帮我查一下账单记录和退费规则。",
+      "expected_hold": false,
+      "derived_from": "C07",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V17",
+      "scenario": "loan_fee",
+      "label": "negation",
+      "text": "我没有交任何保证金，也不打算交，只是想知道这个放贷应用靠不靠谱。",
+      "expected_hold": false,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V18",
+      "scenario": "loan_fee",
+      "label": "negation",
+      "text": "我知道正规贷款不会先收费，对方一要钱我就没理他，没转任何款。",
+      "expected_hold": false,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V19",
+      "scenario": "loan_fee",
+      "label": "consult",
+      "text": "正规银行放款前会不会要求先交保证金、解冻费或者刷流水？",
+      "expected_hold": false,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V20",
+      "scenario": "loan_fee",
+      "label": "consult",
+      "text": "我怎么查一个放贷应用是不是正规机构上架的？有哪些核实途径？",
+      "expected_hold": false,
+      "derived_from": "C01",
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V21",
+      "scenario": "investment_safe_account",
+      "label": "fraud",
+      "text": "对方说我账户涉嫌洗钱，要把钱转到安全账户接受资金监管，让我按他说的转。",
+      "expected_hold": true,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V22",
+      "scenario": "investment_safe_account",
+      "label": "fraud",
+      "text": "投资导师说这次内部名额有限，让我把资金转到指定账户做资格验证。",
+      "expected_hold": true,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V23",
+      "scenario": "investment_safe_account",
+      "label": "fraud",
+      "text": "客服说要解除我账户的风险标记，先把存款转到监管账户，验证完就退回。",
+      "expected_hold": true,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V24",
+      "scenario": "investment_safe_account",
+      "label": "normal",
+      "text": "我想把这笔定期存款转成通知存款，利息按什么标准计算？",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V25",
+      "scenario": "investment_safe_account",
+      "label": "normal",
+      "text": "我要给家人转一笔生活费，在手机银行怎么操作、限额是多少？",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V26",
+      "scenario": "investment_safe_account",
+      "label": "normal",
+      "text": "我想了解银行理财产品的风险等级是怎么划分的，自己该怎么看。",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V27",
+      "scenario": "investment_safe_account",
+      "label": "negation",
+      "text": "我不会把钱转到任何所谓安全账户，谁这么说我都不信，也没有转过。",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V28",
+      "scenario": "investment_safe_account",
+      "label": "negation",
+      "text": "那个所谓导师让我转账，我已经拒绝了，没有转钱，只是想问问要不要举报。",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V29",
+      "scenario": "investment_safe_account",
+      "label": "consult",
+      "text": "听说有所谓安全账户可以接受资金监管，这种说法是真的吗？",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    },
+    {
+      "id": "V30",
+      "scenario": "investment_safe_account",
+      "label": "consult",
+      "text": "遇到对方让我把钱转到外地账户，我该怎么核实这是不是诈骗？",
+      "expected_hold": false,
+      "derived_from": null,
+      "origin": "synthetic_test"
+    }
+  ]
+}

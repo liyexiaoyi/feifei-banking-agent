@@ -1,0 +1,111 @@
+/* 技术暂停横幅：低饱和蓝灰/绿灰，与诈骗暖琥珀 #fdf6e3 区分 */
+.recovery-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.recovery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #eef2f3;
+  border: 1px solid #c8d3d1;
+  border-left: 4px solid #6b8285;
+  border-radius: 8px;
+  color: #3d4f50;
+}
+
+.recovery-item--check {
+  background: #eef3ee;
+  border-color: #c4d2c6;
+  border-left-color: #5f7a6a;
+}
+
+.recovery-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.recovery-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.recovery-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #5b7173;
+}
+
+.recovery-item--check .recovery-icon {
+  color: #5f7a6a;
+}
+
+.recovery-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  background: #5b7173;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.recovery-btn--handoff {
+  background: #54705f;
+}
+
+.recovery-btn:hover:not(:disabled) {
+  background: #4d6264;
+}
+
+.recovery-btn--handoff:hover:not(:disabled) {
+  background: #476352;
+}
+
+.recovery-btn:disabled {
+  background: #9db0b1;
+  cursor: not-allowed;
+}
+
+.recovery-btn:focus-visible {
+  outline: 3px solid #244f43;
+  outline-offset: 2px;
+}
+
+.recovery-spin {
+  animation: recovery-spin 1.2s linear infinite;
+}
+
+@keyframes recovery-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .recovery-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .recovery-btn {
+    width: 100%;
+  }
+}

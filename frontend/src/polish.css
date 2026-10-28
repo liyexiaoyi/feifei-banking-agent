@@ -1,0 +1,52 @@
+/* TaskShortcuts 快捷入口 */
+.task-shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 18px 4px;background:#fff}
+.task-shortcuts__button{display:flex;align-items:center;gap:9px;min-height:44px;padding:10px 13px;border:1px solid #e0e7db;border-radius:9px;background:#f7f8f3;color:#30513f;font-size:14px;text-align:left}
+.task-shortcuts__button:hover:not(:disabled){background:#edf2e6;border-color:#c9d6bf}
+.task-shortcuts__button:disabled{opacity:.5;cursor:not-allowed}
+.task-shortcuts__button:focus-visible{outline:3px solid #8db6a0;outline-offset:2px}
+.task-shortcuts__icon{display:inline-flex;color:#52755f}
+.task-shortcuts__label{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.task-shortcuts__arrow{color:#9aa89b;margin-left:auto}
+@media(max-width:760px){.task-shortcuts{grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px 2px}.task-shortcuts__button{min-height:46px;font-size:14px}}
+/* 聊天层次与字号 */
+.message p{font-size:15px;line-height:1.75}
+.welcome h3{font-size:18px;color:#2e4437}
+.welcome p{font-size:14px;line-height:1.8}
+.suggestions button{min-height:44px;font-size:14px}
+.thinking{font-size:14px}
+.inline-bill,.payee-card{font-size:14px}
+/* 输入区 */
+.composer-input textarea{font-size:15px;line-height:1.7;padding:14px 16px;border-radius:10px}
+.composer-input textarea:focus{outline:2px solid #a9bc9e;outline-offset:2px}
+.composer-actions>button{min-width:44px;min-height:44px;border-radius:10px}
+.composer-actions>span{font-size:12px}
+.composer-caption{font-size:12px;line-height:1.7}
+/* 导航 */
+.nav-item{font-size:14px;min-height:44px;gap:12px}
+.brand{font-size:22px}
+.breadcrumb{font-size:12px}
+.date-label{font-size:12px}
+/* 1265px 双栏 */
+@media(min-width:1000px) and (max-width:1340px){main{padding:26px 24px 0}.dashboard-grid{grid-template-columns:minmax(340px,1fr) 270px;gap:18px}.metrics{grid-template-columns:1fr 1fr 1fr;gap:14px}.metric{padding:18px}}
+/* 移动端 390px：卡片不溢出、导航保留 */
+@media(max-width:760px){.app-shell{flex-direction:column}.sidebar{position:static;width:100%;height:auto;padding:14px 14px 0;border-right:0;border-bottom:1px solid var(--border)}.sidebar nav{flex-direction:row;flex-wrap:wrap;gap:6px;margin-top:10px}.nav-item{width:auto;flex:1 1 30%;justify-content:center;font-size:13px;padding:10px 8px}.sidebar-note,.profile{display:none}.workspace-tag{margin:14px 10px 10px}.main-shell{margin-left:0}main{padding:18px 14px 0}.topbar{padding:0 14px;height:60px}.metrics{grid-template-columns:1fr;gap:12px}.dashboard-grid{grid-template-columns:1fr}.panel{max-width:100%}.page-intro{flex-direction:column;align-items:flex-start;gap:8px}h1{font-size:22px}.metric-value{font-size:26px}.operation-card,.memory-card,.inline-bill{overflow-wrap:anywhere;max-width:100%}.table-wrap{overflow-x:auto}.operation-actions button,.primary-button,.outline-button{min-height:44px}.banner,.safety-banner{font-size:14px}}
+/* 风险提示与禁用态保持清晰 */
+button:disabled{opacity:.55}
+.banner{line-height:1.7;font-size:14px}
+/* Integration fixes for existing selector specificity and narrow chat columns. */
+.task-shortcuts__button{min-width:0}
+.composer textarea::placeholder{font-size:14px}
+.page-intro p{font-size:14px;line-height:1.7}
+.panel-header h2{font-size:16px}.assistant-name{font-size:13px}.assistant-name>span{font-size:11px}
+.operation-head,.operation-details,.operation-details small,.operation-impact,.operation-actions>button{font-size:13px;line-height:1.7}
+.operation-actions>button{min-height:42px}.operation-details>div{min-width:0;overflow-wrap:anywhere}
+@media(min-width:761px) and (max-width:1400px){.task-shortcuts{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.workspace-tag{display:none}.brand{justify-content:flex-start}.brand>span:last-child{display:block}.metrics{grid-template-columns:1fr 1fr}.metric.asset{grid-column:1/-1}.metric-label{font-size:12px}.metric-foot{font-size:10px}.composer-caption{font-size:12px}.sidebar nav{margin-top:14px}.nav-item svg{width:18px}.mode-label{font-size:11px}.message p{overflow-wrap:anywhere}.date-label{display:none}}
+.bill-missing{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:18px 0;color:#53666a}
+.bill-missing-text{flex:1;min-width:160px;margin:0;font-size:14px;line-height:1.8}
+.bill-missing-icon{margin-top:4px;flex-shrink:0}.bill-missing-retry{min-height:44px;padding:10px 16px;border:1px solid #c8d3d1;border-radius:8px;background:#f0f4f3;color:#355652;display:flex;align-items:center;gap:8px}
+.bill-missing-retry:focus-visible{outline:3px solid #8db6a0;outline-offset:3px}
+
+.tasks-workspace{display:grid;gap:18px}.task-teaser{padding:22px}.task-teaser h2{font-size:16px;margin:0 0 10px}.task-teaser p{font-size:13px;color:#6b7971;line-height:1.7}
+
+.receipt-check{margin-bottom:22px}.receipt-check>p{line-height:1.8;color:#647469;font-size:13px}.receipt-check dl{display:grid;grid-template-columns:100px minmax(0,1fr);gap:12px;margin:22px 0}.receipt-check dt{color:#65746a;font-size:13px}.receipt-check dd{margin:0;line-height:1.65;font-size:14px;overflow-wrap:anywhere}.receipt-check button:focus-visible{outline:2px solid #305c4e;outline-offset:3px}

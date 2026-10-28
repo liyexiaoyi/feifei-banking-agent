@@ -1,0 +1,12 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {loadComponent,elements,textContent} from './component-test-loader.mjs'
+const m=await loadComponent('CodegenPanel.tsx').catch(()=>null)
+const base={description:'求整数差',argsText:'13,7',consent:true,available:true,provenance:'fixture',view:null,error:'',busy:false,needsCheck:false,blocked:false,inputId:'generation',onDescription(){},onArgs(){},onConsent(){},onRun(){},onCheck(){},onNew(){}}
+function tree(p={}){assert(m?.default,'PC generated-computation panel missing');return m.default({...base,...p})}
+function button(t,label){const b=elements(t,'button').find(b=>textContent(b).includes(label));assert(b,label);return b}
+test('calculation requires an explicitly checked consent and large labelled native controls',()=>{const t=tree();assert(elements(t,'label').length>=3);assert.equal(elements(t,'textarea').length,1);assert.equal(elements(t,'input').filter(e=>e.props.type==='checkbox').length,1);assert.match(textContent(t),/本机测试/);assert.match(textContent(t),/不会.*转账|不.*转账/);assert(Number(button(t,'生成并计算').props.style?.minHeight)>=48)})
+test('unconnected unchecked invalid busy blocked or unresolved states disable paid generation',()=>{for(const state of [{available:false},{consent:false},{busy:true},{blocked:true},{needsCheck:true},{description:''},{argsText:'1.5'},{argsText:'9007199254740992'}])assert.equal(button(tree(state),'生成并计算').props.disabled,true)})
+test('unknown remains pending and offers readonly check without new request',()=>{let start=0,check=0;const t=tree({needsCheck:true,view:{generation:{status:'SENT_UNKNOWN',provenance:'model',error:{message:'RAW_PRIVATE'}},run:{status:'SUCCEEDED',result:{result_text:'999999'}}},onRun(){start++},onCheck(){check++}});assert.match(textContent(t),/核对/);assert.doesNotMatch(textContent(t),/RAW_PRIVATE|999999/);assert.equal(button(t,'开始新计算').props.disabled,true);button(t,'核对结果').props.onClick();assert.equal(start,0);assert.equal(check,1)})
+test('success keeps full integer decimal text including zero',()=>{for(const result_text of ['0','9223372036854775807']){const t=tree({view:{generation:{status:'SUCCEEDED',provenance:'fixture',wat_sha256:'a'.repeat(64)},run:{status:'SUCCEEDED',result:{result_text}}}});assert(textContent(t).includes(result_text));assert.doesNotMatch(textContent(t),/MFA|CAS|fuel|opus/i)}})
+test('mounting a stateless panel never invokes model callback',()=>{let calls=0;tree({onRun(){calls++}});assert.equal(calls,0)})

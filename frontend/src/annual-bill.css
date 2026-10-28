@@ -1,0 +1,13 @@
+.annual-bill-panel { margin-bottom:24px; padding:24px; line-height:1.7; }
+.annual-bill-panel h2 { margin:0 0 8px; }
+.annual-bill-panel h3 { margin:24px 0 12px; }
+.annual-bill-controls { display:flex; align-items:center; flex-wrap:wrap; gap:16px; margin:18px 0; }
+.annual-bill-controls label { display:flex; align-items:center; gap:12px; }
+.annual-bill-controls input { width:112px; padding:8px 12px; color:var(--green); border:1px solid #80988b; border-radius:8px; background:#fff; }
+.annual-bill-summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:16px; padding:20px; margin:20px 0; background:var(--cream); border-radius:10px; }
+.annual-bill-summary small,.annual-bill-summary b { display:block; }
+.annual-bill-summary small { color:#566e60; margin-bottom:6px; font-size:inherit; }
+.annual-bill-summary b { font-variant-numeric:tabular-nums; font-size:1.2em; overflow-wrap:anywhere; }
+.annual-bill-panel ul { padding-left:24px; }
+.annual-bill-panel li { margin:10px 0; overflow-wrap:anywhere; }
+.annual-bill-panel [role='alert'] { padding:16px; border:1px solid #c2a473; border-radius:8px; background:#fbf7ee; }
