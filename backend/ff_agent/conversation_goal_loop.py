@@ -9,7 +9,7 @@ from ff_agent.bank import DomainError
 from ff_agent.birthday_service import BirthdayService
 from ff_agent.birthday_goal_view import extract_slots, catalog_choices, render_goal
 from ff_agent.birthday_budget import BirthdayBudgets
-from ff_agent.birthday_chat_fields import is_birthday_intent
+from ff_agent.birthday_chat_fields import is_birthday_intent, is_other_business
 from ff_agent.conversation_subscriptions import SubscriptionGoal, BILL_WORDS, RENEW_WORDS, FAQ, KIND as _SUB_KIND
 
 _ASK = (('recipient_label', '给谁过生日？'), ('event_date', '哪天过生日？'),
@@ -18,6 +18,7 @@ _ORD = {'一': 0, '二': 1, '三': 2, '四': 3, '五': 4, '1': 0, '2': 1, '3': 2
 _WAIT = ('WAITING_CONFIRMATION', 'WAITING_VERIFICATION')
 _RELATED = re.compile(r'确认|进度|核对|生日|花|蛋糕')
 _PICK = '选哪束花？'
+_BUDGET_FIX = re.compile(r'预算\s*\S{0,4}?(?:改|换|变|调|不是|现在|应该|其实|\d|[一二两三四五六七八九十百千万])|(?:改|换|调)\S{0,4}预算')
 
 
 class _Stop(Exception):
@@ -178,6 +179,26 @@ class GoalLoop:
             slots = extract_slots(self.bank, user, text, {})
             rk = 'bg-' + hashlib.sha256(str(key).encode('utf-8')).hexdigest()[:40]
             g = self.store.create(user, session, epoch, 'birthday', slots, rk)
+            return self._collect(user, session, epoch, g)
+        if _BUDGET_FIX.search(text or ''):
+            r = self._resp(user, g)
+            if is_other_business(text or ''):
+                return dict(r, message='这条消息同时包含生日预算和其他业务，均未处理。请分开发送。')
+            st = (r.get('goal') or {}).get('status')
+            if (g.get('paused') or st in ('UNKNOWN', 'PAUSED') or (g.get('observations') or {}).get('flow_id') or g.get('steps')
+                    or g.get('phase') not in ('COLLECTING', 'CHOOSING')):
+                return dict(r, message='当前目标已有进行中、已暂停或待核对的操作，预算未修改。'
+                                       '请先核对；如需重新规划，请在目标卡片中点击“切换”后重新发起。')
+            old = dict(g.get('slots') or {})
+            got = extract_slots(self.bank, user, text, old)
+            if 'budget_cents' in got and got['budget_cents'] == old.get('budget_cents'):
+                return r
+            new = dict(old)
+            new.pop('budget_cents', None)
+            if got.get('budget_cents') is not None:
+                new['budget_cents'] = got['budget_cents']
+            obs = {**(g.get('observations') or {}), 'choices': []}
+            g = self._upd(user, session, epoch, g, slots=new, observations=obs)
             return self._collect(user, session, epoch, g)
         if g.get('paused'):
             # Paused: read-only view for related text; never reinterpret new text as an old choice.

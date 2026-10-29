@@ -15,6 +15,7 @@ from .dialog_state import bill_answer
 from .card_intent import parse_card_intent
 from .virtual_intent import parse_virtual_intent
 from .wealth_intent import parse_wealth_intent
+from .wealth_amount import wealth_amount
 from .language_guard import inspect_language
 from .polite_tail import strip_polite_tail
 from .memory import clean_excerpt
@@ -112,15 +113,24 @@ class Planner:
             return self._rules(text,context)
         # This bank uses CNY yuan. Fill a precisely supplied numeric slot locally;
         # this is independent of model availability, not an outage fallback.
-        if re.fullmatch(r'\s*-?\d+(?:\.\d+)?\s*[元块]?\s*',text):
+        if re.fullmatch(r'\s*(?:[-负負]?\s*\d+(?:\.\d+)?\s*(?:元|块钱|块)?|[-负負]?\s*[零一二两三四五六七八九十百千万]+\s*(?:元|块钱|块))\s*',text):
             return self._rules(text,context)
         if (text.strip() in ('确认','同意','继续','好的')
             or re.search(r'(?:给|转给)(?:他|她|那个(?:人|收款人)?|刚才那个人)',text)
-            or re.fullmatch(r'\s*(?:还是|改成|改为|改到|再转)\s*\d+(?:\.\d+)?\s*[元块]?\s*',text)):
+            or re.fullmatch(r'\s*(?:还是|改成|改为|改到|再转)\s*(?:[-负負]?\s*\d+(?:\.\d+)?\s*(?:元|块钱|块)?|[-负負]?\s*[零一二两三四五六七八九十百千万]+\s*(?:元|块钱|块))\s*',text)):
             return self._rules(text,context)
         if self.mode=='model':
+            if ((re.search(r'转账|转给|给.{1,20}转',text) or context.get('pending_transfer'))
+                    and self._unsafe_money(text)):
+                return [{'type':'clarify','message':'转账金额需为人民币正数，请重新说明金额。'}]
             return self._model(text,context)
         return self._rules(text,context)
+
+    @staticmethod
+    def _unsafe_money(s):
+        return bool(re.search(r'美元|美金|港币|港元|欧元|日元|英镑|韩元|澳元|加元|刀|新币|台币|泰铢|卢布|USD|HKD|EUR|JPY|GBP|AUD|CAD|SGD|TWD|NTD|THB|RUB|\$',s,re.I)
+                    or re.search(r'(?:\d|[零一二两三四五六七八九十百千万])\s*(?!人民币)(?:(?![零一二两三四五六七八九十百千万])[A-Za-z\u4e00-\u9fff]){1,4}元',s)
+                    or re.search(r'[负負+\-]\s*(?:\d|[零一二两三四五六七八九十百千万])',s))
 
     def _rules(self,text,context):
         text=strip_polite_tail(normalize_numeric_width(text))
@@ -158,12 +168,15 @@ class Planner:
             actions.append({'type':'cancel_subscription','merchant':merchant} if merchant else
                            {'type':'clarify','message':'你想取消哪一项订阅？可以在订阅列表中选择具体商户。'})
         pending=context.get('pending_transfer') or {}
-        followup=bool(pending) and bool(re.fullmatch(r'\s*-?\d+(?:\.\d+)?\s*[元块]?\s*',text))
-        if re.search(r'转账|转给|给.{1,20}转',text) or followup or (pending and re.search(r'还是|改成|改为',text)):
+        followup=bool(pending) and bool(re.fullmatch(r'\s*(?:[-负負]?\s*\d+(?:\.\d+)?\s*(?:元|块钱|块)?|[-负負]?\s*[零一二两三四五六七八九十百千万]+\s*(?:元|块钱|块))\s*',text))
+        if re.search(r'转账|转给|给.{1,20}转',text) or followup or (pending and re.search(r'还是|改成|改为|改到|再转',text)):
             clauses=re.split(r'[，,；;。]',text)
             starts=[i for i,c in enumerate(clauses) if re.search(r'转账|转给|给.{1,20}转',c)]
             segment='，'.join(clauses[starts[-1] if starts else len(clauses)-1:])
             fragment=clauses[-1]
+            amount_tokens=re.findall(r'\d+(?:\.\d+)?\s*[十百千万]?\s*(?:元|块)|[零一二两三四五六七八九十百千万]+\s*(?:元|块钱|块)',segment)
+            ambiguous=(self._unsafe_money(segment) or len(amount_tokens)>1
+                       or self._unsafe_money(fragment))
             payees=list(dict.fromkeys(m[1] for m in re.finditer(r'(?:转给|给)\s*(妈妈|爸爸|林晓|朋友|(?<!\d)\d{11}(?!\d))',segment)))
             long_digits=bool(re.search(r'\d{12,}',segment))
             # Explicit recipient mentions (whitelisted or not) across every transfer clause in this request
@@ -200,20 +213,22 @@ class Planner:
                     amount_match=re.search(r'转\s*(-?\d+(?:\.\d+)?)',fragment)
                 if not amount_match and followup:
                     amount_match=re.search(r'(-?\d+(?:\.\d+)?)',fragment)
-                chinese=re.search(r'([零一二两三四五六七八九十百千万]+)元',fragment)
+                chinese=re.search(r'([零一二两三四五六七八九十百千万]+)(?:元|块钱|块)',fragment)
             try:
                 if amount_match:
                     value=Decimal(amount_match[1])
                     if value>0 and value.as_tuple().exponent>=-2:
                         cents=int(value*100)
                 elif chinese:
-                    cents=chinese_integer(chinese[1])*100
+                    cents=wealth_amount(chinese.group(0),bare=True)
             except (InvalidOperation,ValueError):
                 pass
             if long_digits:
                 actions.append({'type':'clarify','message':'收款号码位数不正确，请核对完整的 11 位手机号或在收款人列表中选择。'})
             elif len(payees)>1:
                 actions.append({'type':'clarify','message':'检测到多个收款人，请一次只给一位收款人转账。'})
+            elif ambiguous:
+                actions.append({'type':'clarify','message':'只支持一笔人民币金额，请明确一个金额，例如“给妈妈转 300 元”。'})
             elif not payee or cents is None or cents<=0:
                 actions.append({'type':'clarify','message':'请明确收款人和金额，例如“给妈妈转 300 元”。金额需要大于零且最多两位小数。',})
             else:

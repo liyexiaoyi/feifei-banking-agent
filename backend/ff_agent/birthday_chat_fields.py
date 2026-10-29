@@ -104,7 +104,7 @@ def _budget(t, asked):
     amounts = set(_MONEY.findall(kept))
     if len(amounts) > 1:
         return True, None  # conflicting candidates: ask again
-    m = re.search(rf'预算(?:改成|改为|是|为)?[:：]?\s*([^，,。；;！!]*)', t)
+    m = re.search(rf'预算\s*(?:改成|改为|是|为)?[:：]?\s*([^，,。；;！!]*)', t)
     if m:
         return True, wealth_amount(m[1].strip(), bare=True)
     if '不是' in t and _MONEY.search(t):

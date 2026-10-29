@@ -1,0 +1,22 @@
+.app-shell.assistant-workspace .draft-dialog-backdrop{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:24px;background:rgba(25,35,30,.25)}
+.app-shell.assistant-workspace .draft-dialog{background:#fff;max-width:520px;width:100%;max-height:calc(100dvh - 48px);overflow:auto;border-radius:18px;border:1px solid var(--border,#dfe5e1);padding:24px;box-shadow:0 8px 28px rgba(25,35,30,.12);box-sizing:border-box}
+.app-shell.assistant-workspace .draft-dialog h2{font-size:20px;margin:0 0 12px}
+.app-shell.assistant-workspace .draft-dialog p{font-size:var(--fs,16px);line-height:1.7;margin:0 0 16px;white-space:pre-wrap;overflow-wrap:anywhere}
+.app-shell.assistant-workspace .draft-dialog-actions{display:flex;flex-wrap:wrap;gap:12px}
+.app-shell.assistant-workspace .draft-dialog-actions button{min-height:44px;padding:0 18px;border-radius:10px;font-size:var(--fs,16px);background:#fff;color:var(--green,#2f5d46);border:1px solid var(--border,#dfe5e1);cursor:pointer}
+.app-shell.assistant-workspace .draft-dialog-actions button:last-child{background:var(--green,#2f5d46);color:#fff;border-color:var(--green,#2f5d46)}
+.app-shell.assistant-workspace .pending-nav__list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.app-shell.assistant-workspace .pending-nav__row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid var(--border,#dfe5e1);border-radius:12px;padding:12px;overflow-wrap:anywhere}
+.app-shell.assistant-workspace .pending-nav__title{font-size:var(--fs,16px);min-width:0}
+.app-shell.assistant-workspace .pending-nav__state{font-size:var(--fs-sm,14px);color:var(--muted,#5f6b65)}
+.app-shell.assistant-workspace .pending-nav__amount{font-size:var(--fs,16px);font-variant-numeric:tabular-nums}
+.app-shell.assistant-workspace .pending-nav__button{min-height:44px;padding:0 14px;border-radius:10px;background:#fff;color:var(--green,#2f5d46);border:1px solid var(--green,#2f5d46);font-size:var(--fs-sm,14px);cursor:pointer}
+.app-shell.assistant-workspace .reading-jump{display:flex;justify-content:flex-end;padding:6px 12px}
+.app-shell.assistant-workspace .reading-jump button{min-height:44px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid var(--border,#dfe5e1);font-size:var(--fs-sm,14px);color:var(--green,#2f5d46);cursor:pointer}
+.app-shell.assistant-workspace .insights-column{border-left:1px solid var(--border,#dfe5e1);padding-left:20px;display:flex;flex-direction:column;gap:16px;font-size:var(--fs,16px);line-height:1.6;overflow-wrap:anywhere}
+.app-shell.assistant-workspace .insights-column h2{font-size:18px;margin:0}
+.app-shell.assistant-workspace .insights-column:empty{display:none}
+.app-shell.assistant-workspace h2{overflow-wrap:anywhere}
+.app-shell.assistant-workspace .operation-card:focus{outline:3px solid var(--green,#2f5d46);outline-offset:3px}
+.app-shell.assistant-workspace .draft-dialog-actions button:focus-visible,.app-shell.assistant-workspace .pending-nav__button:focus-visible,.app-shell.assistant-workspace .reading-jump button:focus-visible{outline:3px solid var(--green,#2f5d46);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.app-shell.assistant-workspace .draft-dialog-backdrop,.app-shell.assistant-workspace .draft-dialog,.app-shell.assistant-workspace .pending-nav__row,.app-shell.assistant-workspace .operation-card{transition:none;animation:none;scroll-behavior:auto}}

@@ -1,0 +1,45 @@
+.app-shell.assistant-workspace{--bg:#faf9f6;--ink:#242b29;--muted:#59625d;--green:#245748;--fs:16px;--fs-sm:14px;background:var(--bg);color:var(--ink);font-size:var(--fs)}
+.app-shell.assistant-workspace.reading-comfortable{--fs:18px;--fs-sm:18px}
+.app-shell.assistant-workspace .sidebar{position:fixed;top:0;left:0;bottom:0;width:224px;max-width:224px;overflow-y:auto;padding:16px;box-sizing:border-box}
+.app-shell.assistant-workspace .main-shell{margin-left:224px}
+.app-shell.assistant-workspace .main-shell main{padding:24px 36px}
+.app-shell.assistant-workspace .topbar{min-height:72px;flex-wrap:wrap;gap:12px;font-size:var(--fs-sm)}
+.app-shell.assistant-workspace .sidebar .brand .brand-mark{color:#fff;font-weight:400;font-size:16px;width:36px;height:40px}
+.app-shell.assistant-workspace .sidebar .brand .brand-name{display:block;font-size:18px;line-height:20px}
+.app-shell.assistant-workspace .sidebar .brand .brand-subtitle{font-size:var(--fs-sm)}
+.app-shell.assistant-workspace .sidebar .sidebar-note{background:transparent;border:0;box-shadow:none;padding:8px 0}
+.app-shell.assistant-workspace .sidebar .sidebar-profile{padding:8px 0;gap:8px}
+.app-shell.assistant-workspace.workspace-home .integration-details{border:0;background:transparent;box-shadow:none;padding:0}
+.app-shell.assistant-workspace.workspace-home .integration-details summary{min-height:44px;display:flex;align-items:center;font-size:var(--fs-sm);cursor:pointer}
+.ff-visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ff-skip-link{position:fixed;left:-9999px;top:12px;z-index:1000;padding:10px 14px;background:#fff;color:#245748;border-radius:8px}
+.ff-skip-link:focus{left:240px}
+.app-shell.assistant-workspace.no-task-rail .dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr);max-width:1000px;margin:0 auto}
+.app-shell.assistant-workspace.has-task-rail .dashboard-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px}
+.app-shell.assistant-workspace.empty-conversation .conversation-panel{border:0;box-shadow:none;background:transparent;height:auto;min-height:0}
+.app-shell.assistant-workspace.empty-conversation .conversation-panel>.conversation{padding:24px 0;max-height:none;min-height:0;overflow:visible}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome{display:grid;justify-items:center;gap:12px;max-width:640px;margin:0 auto;padding:28px 12px;text-align:center}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome__mark{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#e6ede2;color:var(--green)}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome__title{margin:0;font-size:30px;font-weight:600;color:var(--ink)}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome__copy{margin:0;font-size:var(--fs);line-height:1.7;color:var(--muted)}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome__examples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome__example{min-height:44px;padding:10px 14px;border:1px solid #d9ddd6;border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:var(--fs-sm);text-align:left;cursor:pointer}
+.app-shell.assistant-workspace.empty-conversation .ff-welcome__example:hover{border-color:var(--green);color:var(--green)}
+.app-shell.assistant-workspace.empty-conversation :is(.ff-welcome__note,.ff-welcome__footnote){margin:0;font-size:var(--fs-sm);color:var(--muted)}
+.app-shell.assistant-workspace.empty-conversation .composer{position:static;width:100%;max-width:850px;margin:0 auto;box-sizing:border-box}
+.app-shell.assistant-workspace.workspace-home .composer{border:1px solid #89948c;border-radius:18px;background:#fff;padding:16px;box-shadow:none}
+.app-shell.assistant-workspace.workspace-home .composer:focus-within{box-shadow:0 0 0 3px rgba(36,87,72,.2)}
+.app-shell.assistant-workspace.workspace-home .composer :is(textarea,.composer-input){width:100%;min-height:64px;padding:0;border:0;outline:0;box-shadow:none;background:transparent;color:var(--ink);font:inherit;font-size:var(--fs);line-height:1.65;resize:vertical}
+.app-shell.assistant-workspace.workspace-home .composer :is(.send-button,button[type=submit]){min-width:44px;min-height:44px;border:0;border-radius:12px;background:var(--green);color:#fff}
+.app-shell.assistant-workspace.workspace-home .composer :is(small,.composer-note,.composer-hint){font-size:var(--fs-sm);color:var(--muted)}
+.app-shell.assistant-workspace.has-messages .conversation-panel{display:flex;flex-direction:column;border:0;box-shadow:none;background:transparent;height:calc(100dvh - 180px);min-height:500px}
+.app-shell.assistant-workspace.has-messages .conversation-panel>.conversation{flex:1;min-height:0;max-height:none;overflow-y:auto;padding:20px 8px}
+.app-shell.assistant-workspace.has-messages .composer{flex-shrink:0}
+.app-shell.assistant-workspace.has-messages .message{font-size:var(--fs);line-height:1.75}
+.app-shell.assistant-workspace.has-messages :is(.message.user,.message--user){margin-left:auto;max-width:80%;padding:10px 14px;border-radius:14px;background:#e6ede2}
+.app-shell.assistant-workspace.has-messages :is(.message.assistant,.message--assistant){background:transparent;border:0;padding:0}
+.app-shell.assistant-workspace.workspace-home button{min-height:44px}
+.app-shell.assistant-workspace :focus-visible{outline:3px solid var(--green);outline-offset:2px}
+@media (max-width:1150px){.app-shell.assistant-workspace.has-task-rail .dashboard-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-height:900px){.app-shell.assistant-workspace.empty-conversation .ff-welcome{padding:16px 12px}.app-shell.assistant-workspace.empty-conversation .conversation-panel>.conversation{padding:12px 0}}
+@media (prefers-reduced-motion:reduce){.app-shell.assistant-workspace *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
